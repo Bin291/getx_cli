@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../history/views/history_view.dart';
 import '../../home/views/home_view.dart';
 import '../../profile/views/profile_view.dart';
+import '../../todo/views/todo_view.dart';
 import '../controllers/layout_controller.dart';
 
 class LayoutView extends GetView<LayoutController> {
@@ -15,16 +16,18 @@ class LayoutView extends GetView<LayoutController> {
       body:TabBarView
         (controller: controller.tabController,
           children: [
-        HomeView(),
+            TodoView(),
         HistoryView(),
         ProfileView(),
+
+
       ]
       ),
       bottomNavigationBar: Obx(()=>BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.list),
+            label: 'Lists',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.history),
