@@ -23,24 +23,45 @@ class LayoutView extends GetView<LayoutController> {
 
       ]
       ),
-      bottomNavigationBar: Obx(()=>BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Lists',
+      bottomNavigationBar: Obx(
+            () => Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF2A2A2A), // Darker background for the nav bar
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 10,
+                offset: const Offset(0, -2),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'History',
+          child: BottomNavigationBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.blue, // Active item color
+            unselectedItemColor: Colors.white70, // Inactive item color
+            selectedLabelStyle: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: const TextStyle(color: Colors.white70),
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.list),
+                label: 'Lists',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history),
+                label: 'History',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+            currentIndex: controller.currentIndex.value,
+            onTap: controller.onTabTapped,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: controller.currentIndex.value,
-        onTap: controller.onTabTapped,
-      ),),
+        ),
+      ),
     );
   }
 }

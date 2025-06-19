@@ -5,10 +5,19 @@ class ProfileController extends GetxController {
 
   final count = 0.obs;
  final name = 'NguyenPhuongBinh'.obs;
+
+Future<void>LogoutGoogle() async {
+  
+
+}
+
   @override
   void onInit() {
     super.onInit();
   }
+
+
+
 
   @override
   void onReady() {
